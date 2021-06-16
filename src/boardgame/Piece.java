@@ -19,7 +19,7 @@ public abstract class Piece {
 
 		
 		
-		public abstrac possibleMoves() {
+		public abstract possibleMoves() {
 			return boolean;
 		}
 		
