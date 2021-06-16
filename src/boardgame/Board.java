@@ -38,12 +38,12 @@ public class Board {
 
 
 
-	public Piece piece( int row, int columns ) {
-		return;
+	public Piece piece( int row, int column ) {
+		return pieces[row][column];
 	}
 	
-	public Piece piece(Positon position) {
-		return;
+	public Piece piece(Position position) {
+		return pieces[position.getRow()][position.getColumn()];
 	}
 	
 	public void removePiece(Position position) {
