@@ -26,10 +26,12 @@ public class ChessMatch {
 		Position source = sourcePosition.toPosition();
 		Position target = targetPosition.toPosition();
 		validateSourcePosition(source);
+		validateTargetPosition(source, target);
 		Piece capturedPiece = makeMove(source, target);
 		return (ChessPiece)capturedPiece;
 	}
 	
+
 	private Piece makeMove(Position source, Position target) {
 		Piece p = board.removePiece(source);
 		Piece capturedPiece = board.removePiece(target);
@@ -42,7 +44,14 @@ public class ChessMatch {
 			throw new ChessException("Não tem peça nessa posição, otário!");
 		}
 		if (!board.piece(position).isThereAnyPossibleMove()) {
-			throw new ChessException("Não tem nenhum movimento possível, babaca!")
+			throw new ChessException("Não tem nenhum movimento possível, babaca!");
+		}
+	}
+
+	private void validateTargetPosition(Position source, Position target) {
+		// TODO Auto-generated method stub
+		if (!board.piece(source).possibleMove(target)) {
+			throw new ChessException("A peça não pode se mover para a trajetória informada, paiaço!");
 		}
 	}
 	
